@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as XLSX from 'xlsx';
+import { fetchData } from '../api/api'; 
 
 const Data = () => {
   const [formData, setFormData] = useState([]);
@@ -8,13 +9,9 @@ const Data = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const getData = async () => {
       try {
-        const response = await fetch('http://localhost:4500/api/getdata');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
+        const data = await fetchData();
         setFormData(data);
       } catch (err) {
         setError(err.message);
@@ -23,7 +20,7 @@ const Data = () => {
       }
     };
 
-    fetchData();
+    getData();
   }, []);
 
   const handleDownload = () => {
@@ -126,21 +123,19 @@ const Data = () => {
                     {form.otherLoanType || 'N/A'}
                   </td>
                   <td className="border-t border-gray-600 px-2 md:px-4 py-1 md:py-2 text-pink-300">{form.followUpRequired}</td>
-                  <td className="border-t border-gray-600 px-2 md:px-4 py-1 md:py-2 text-red-300">{form.location}</td>
-                  <td className="border-t border-gray-600 px-2 md:px-4 py-1 md:py-2 text-gray-300">{form.remarks}</td>
+                  <td className="border-t border-gray-600 px-2 md:px-4 py-1 md:py-2">{form.location}</td>
+                  <td className="border-t border-gray-600 px-2 md:px-4 py-1 md:py-2">{form.remarks}</td>
                 </motion.tr>
               ))}
             </tbody>
           </table>
         </div>
-        <div className="mt-6 md:mt-8 flex justify-center">
-          <button
-            onClick={handleDownload}
-            className="bg-gradient-to-r from-teal-400 to-blue-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg shadow-lg hover:from-teal-500 hover:to-blue-600 transition-all duration-700"
-          >
-            Download Excel
-          </button>
-        </div>
+        <button
+          onClick={handleDownload}
+          className="mt-4 w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 transition duration-300 text-white font-bold rounded-lg"
+        >
+          Download Excel
+        </button>
       </motion.div>
     </div>
   );
