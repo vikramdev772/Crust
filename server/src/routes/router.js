@@ -3,7 +3,7 @@ const express = require('express');
 const { submitForm } = require('../controllers/submitController');
 const { getFormData } = require('../controllers/getFormDataController');
 const { clearDatabase } = require('../controllers/clearDatabaseController');
-const { getData } = require('../controllers/getdata');
+const { getData } = require('../controllers/getData');
 const router = express.Router();
 
 router.post('/submit-form', submitForm);
