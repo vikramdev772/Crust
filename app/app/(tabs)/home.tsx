@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import Animated, { FadeIn } from 'react-native-reanimated';
+import homebg from "../../assets/images/home.png"
+
 
 export default function HomeScreen() {
   return (
     <ImageBackground
-      source={{ uri: 'https://4kwallpapers.com/images/walls/thumbs_v/19118.png' }} // Replace with your image URL
+      source={homebg} // Replace with your image URL
       style={styles.background}
     >
       <Animated.View style={styles.container} entering={FadeIn.duration(2000)}>

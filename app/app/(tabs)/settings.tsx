@@ -10,11 +10,11 @@ export default function SettingsScreen() {
       {/* Profile Section */}
       <View style={styles.profileSection}>
         <Image
-          source={{ uri: 'https://randomuser.me/api/portraits/men/1.jpg' }} // You can replace this with the actual image
+          source={{ uri: 'https://cdn-icons-png.flaticon.com/128/3237/3237472.png' }} // You can replace this with the actual image
           style={styles.profileImage}
         />
-        <Text style={styles.profileName}>John Doe</Text>
-        <Text style={styles.profileEmail}>j.doe@gmail.com</Text>
+        <Text style={styles.profileName}>Crust</Text>
+        <Text style={styles.profileEmail}>crustcrop99@gmail.com</Text>
         <TouchableOpacity style={styles.editProfileButton}>
           <Text style={styles.editProfileText}>Edit profile</Text>
         </TouchableOpacity>
@@ -71,7 +71,7 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212', // Dark background
+    backgroundColor: 'black', // Dark background
     padding: 20,
   },
   profileSection: {
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   section: {
-    backgroundColor: '#1e1e1e', // Darker section background
+    backgroundColor: '#1e2638', // Darker section background
     padding: 20,
     borderRadius: 12,
     marginBottom: 20,
