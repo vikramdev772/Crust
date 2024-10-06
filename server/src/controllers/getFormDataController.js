@@ -88,8 +88,8 @@ const getFormData = async (req, res) => {
           <td>${form.email}</td>
           <td>${form.phoneNumber}</td>
           <td>${form.typeOfIncome}</td>
-          <td>${form.businessName || ''}</td>
-          <td>${form.businessTurnover || ''}</td>
+          <td>${form.business || ''}</td>
+          <td>${form.income || ''}</td>
           <td>${form.existingLoans || ''}</td>
           <td>${form.loanRequirement || ''}</td>
           <td>${form.typeOfLoan}</td>
