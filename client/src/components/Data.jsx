@@ -31,8 +31,8 @@ const Data = () => {
       Email: item.email,
       Phone: item.phoneNumber,
       "Type Of Income": item.typeOfIncome,
-      "Business Name": item.businessName,
-      Turnover: item.businessTurnover,
+      "Business": item.businessName,
+     Income: item.businessTurnover,
       "Existing Loans": item.existingLoans,
       "Loan Requirement": item.loanRequirement,
       "Type Of Loan": item.typeOfLoan,
@@ -91,10 +91,10 @@ const Data = () => {
                   Type Of Income
                 </th>
                 <th className="px-2 md:px-4 py-2 md:py-3 text-left">
-                  Business Name
+                  Business
                 </th>
                 <th className="px-2 md:px-4 py-2 md:py-3 text-left">
-                  Turnover
+                 Income
                 </th>
                 <th className="px-2 md:px-4 py-2 md:py-3 text-left">
                   Existing Loans
@@ -125,7 +125,7 @@ const Data = () => {
                     index % 2 === 0
                       ? "bg-gray-800 bg-opacity-50"
                       : "bg-gray-700 bg-opacity-50"
-                  } hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 transition-colors duration-700`}
+                  } hover:bg-gradient-to-r hover:from-indigo-500/20 hover:to-indigo-200/20 transition-colors duration-700`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{

@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link for routing
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { Link } from "react-router-dom"; 
+import { motion, AnimatePresence } from "framer-motion"; // Importing Framer Motion
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to handle mobile menu
+  const [isOpen, setIsOpen] = useState(false); 
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen); // Toggle the menu
+    setIsOpen(!isOpen); 
   };
 
   return (
-    <nav className="bg-black p-4 shadow-lg">
+    <nav className="bg-slate-900 p-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo / Brand Name */}
         <div className="text-white text-2xl font-bold">
@@ -40,9 +42,11 @@ const Navbar = () => {
 
         {/* CTA Button for Desktop */}
         <div className="hidden md:block">
+          <Link to="/signup">
           <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200">
-            Get A Quote
+            Login
           </button>
+          </Link>
         </div>
 
         {/* Hamburger Menu Icon for Mobile */}
@@ -56,32 +60,42 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-slate-900 text-center">
-          <Link to="/" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
-            Home
-          </Link>
-          <Link to="/services" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
-            Services
-          </Link>
-          <Link to="/about" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
-            About
-          </Link>
-          <Link to="/contact" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
-            Contact
-          </Link>
-          <Link to="/form" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
-            Form
-          </Link>
-          <Link to="/data" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
-            Data
-          </Link>
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 mt-4 rounded-lg" onClick={toggleMenu}>
-            Get A Quote
-          </button>
-        </div>
-      )}
+      {/* Mobile Menu Dropdown with Framer Motion */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            className="md:hidden bg-slate-900 text-center"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Link to="/" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
+              Home
+            </Link>
+            <Link to="/services" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
+              Services
+            </Link>
+            <Link to="/about" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
+              About
+            </Link>
+            <Link to="/contact" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
+              Contact
+            </Link>
+            <Link to="/form" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
+              Form
+            </Link>
+            <Link to="/data" className="block text-gray-300 py-2 hover:text-white transition duration-200" onClick={toggleMenu}>
+              Data
+            </Link>
+            <Link to="/login">
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 mt-4 rounded-lg" onClick={toggleMenu}>
+              Login
+            </button>
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
